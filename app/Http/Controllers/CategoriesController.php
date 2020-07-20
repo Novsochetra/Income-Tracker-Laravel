@@ -18,8 +18,7 @@ class CategoriesController extends Controller
         $categories = Categories::all();
 
         // load the view and pass the nerds
-        return View('categories.category')
-            ->with('categories', $categories);
+        return view('categories.index', ['categories' => $categories]);
     }
 
     /**
@@ -29,7 +28,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('categories.category_create');
+        return view('categories.create');
     }
 
     /**
@@ -74,7 +73,7 @@ class CategoriesController extends Controller
     public function edit($id)
     {
         $category = Categories::find($id);
-        return view('categories.category_update', compact('category'));
+        return view('categories.edit', compact('category'));
     }
 
     /**

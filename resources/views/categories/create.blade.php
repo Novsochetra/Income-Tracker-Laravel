@@ -1,5 +1,5 @@
-{{-- @extends('dashboard.layout') --}}
-{{-- @section('content') --}}
+@extends('layouts.app')
+@section('content')
 <section class="content">
     <a href="{{url('/categories')}}" class="btn btn-primary btn-sm btn-oval">
         <i class="fa fa-angle-left"> &nbsp; Back</i>
@@ -45,4 +45,4 @@
     </div>
     </div>
     </section>
-{{-- @endsection --}}
+@endsection

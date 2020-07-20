@@ -13,9 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::resource('incomes', 'Incomes');
-Route::resource('categories', 'CategoriesController');
+Auth::routes();
+
+Route::group(['middleware' => ['auth']], function () { 
+    Route::get('/', function () {
+        return view('home');
+    });
+    Route::resource('incomes', 'Incomes');
+    Route::resource('categories', 'CategoriesController');
+
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+});

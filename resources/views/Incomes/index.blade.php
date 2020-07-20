@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+@extends('layouts.app')
+@section('content')
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
@@ -7,11 +8,16 @@
                     {{ session('message') }}
                 </div>
             @endif
-            <div class="row mt-3 mb-3">
-                <a class="btn btn-outline-success" href="/incomes/create">Add</a>
-            </div>
             <div class="row">
-                <table class="table table-hover">
+                <div class="row">
+                    <div class="col-sm-10">
+                        {{ $incomes->links() }}
+                    </div>
+                    <div class="col-sm-1">
+                        <a class="btn btn-outline-success" href="/incomes/create">Add</a>
+                    </div>
+                </div>
+                <table class="table table-bordered table-hover">
                   <thead>
                     <tr>
                       <th scope="col">Id</th>
@@ -41,8 +47,13 @@
                    @endforeach 
                   </tbody>
                 </table>
-                {{ $incomes->links() }}
+                <div class="row">
+                    <div class="col-sm-12">
+                        {{ $incomes->links() }}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+@endsection
