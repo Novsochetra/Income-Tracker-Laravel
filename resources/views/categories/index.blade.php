@@ -28,18 +28,18 @@
         
                         <!-- delete the nerd (uses the destroy method DESTROY /nerds/{id} -->
                         {{-- <a class="btn btn-small btn-danger" href="{{ URL::to('categories/' . $value->id) }}" onclick="return confirm('Are you sure to delete?')">Delete</a> --}}
-                        <form action="/categories/{{$value->id}}" method="post">
-                            @method('delete')
-                            @csrf
-                            <button type="submit" class="btn btn-small btn-danger">Delete</button> 
-                        </form>
                         <!-- we will add this later since its a little more complicated than the other two buttons -->
         
                         <!-- show the nerd (uses the show method found at GET /nerds/{id} -->
-                        <a class="btn btn-small btn-success" href="{{ URL::to('categories/' . $value->id) }}">Detail</a>
+                        <a class="btn btn-outline-primary" href="{{ URL::to('categories/' . $value->id) }}">Show</a>
         
                         <!-- edit this nerd (uses the edit method found at GET /nerds/{id}/edit -->
-                        <a class="btn btn-small btn-info" href="{{ URL::to('categories/' . $value->id . '/edit') }}">Edit</a>
+                        <a class="btn btn-outline-primary" href="{{ URL::to('categories/' . $value->id . '/edit') }}">Edit</a>
+                        <form action="/categories/{{$value->id}}" method="post">
+                            @method('delete')
+                            @csrf
+                            <button type="submit" class="btn btn-outline-danger">Delete</button> 
+                        </form>
         
                     </td>
                 </tr>
