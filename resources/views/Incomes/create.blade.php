@@ -25,6 +25,15 @@
               </div>
             </div>
           </div>
+
+          <div class="form-group">
+            <label for="categoriesSelect">Categories</label>
+            <select name="category_id" class="form-control" id="categoriesSelect">
+              @foreach ($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+              @endforeach
+            </select>
+          </div>
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Description</label>
             <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>

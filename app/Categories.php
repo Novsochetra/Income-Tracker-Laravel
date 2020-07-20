@@ -11,4 +11,9 @@ class Categories extends Model
         'color',
         'description'
     ];
+
+    public function incomes()
+    {
+        return $this->hasMany('App\Income');
+    }
 }

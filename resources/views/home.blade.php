@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
@@ -18,7 +18,10 @@
                     {{ __('You are logged in!') }}
                     <!-- Chart's container -->
                     <canvas id="canvas" style="display: block; height: 666px; width: 1332px;" width="2664" height="1332" class="chartjs-render-monitor"></canvas>
+                    <div class="mt-3">
+
                     <canvas id="chart-0" style="display: block; height: 666px; width: 1332px;" width="2664" height="1332" class="chartjs-render-monitor"></canvas>
+                    </div>
     
                 </div>
             </div>
@@ -36,34 +39,44 @@
 		let lineChartConfig = {
 			type: 'line',
 			data: {
-				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', "Argust", "September", "October", "November", "December"],
 				datasets: [{
-					label: 'My First dataset',
+					label: 'Expense',
 					backgroundColor: window.chartColors.red,
 					borderColor: window.chartColors.red,
 					data: [
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor()
+						500,
+						700,
+						300,
+						200,
+						300,
+                        300,
+                        400,
+                        900,
+                        100,
+                        200,
+                        200,
+                        500
 					],
 					fill: false,
 				}, {
-					label: 'My Second dataset',
+					label: 'Income',
 					fill: false,
 					backgroundColor: window.chartColors.blue,
 					borderColor: window.chartColors.blue,
 					data: [
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor(),
-						randomScalingFactor()
+						1000,
+						1000,
+						1500,
+						2000,
+						1000,
+                        2000,
+                        1000,
+                        1000,
+                        1200,
+                        1300,
+                        1200,
+                        1100
 					],
 				}]
 			},
@@ -71,7 +84,7 @@
 				responsive: true,
 				title: {
 					display: true,
-					text: 'Chart.js Line Chart'
+					text: '2019 Expense & Income'
 				},
 				tooltips: {
 					mode: 'index',
@@ -85,7 +98,7 @@
 					xAxes: [{
 						display: true,
 						scaleLabel: {
-							display: true,
+							display: false,
 							labelString: 'Month'
 						}
 					}],
@@ -93,25 +106,25 @@
 						display: true,
 						scaleLabel: {
 							display: true,
-							labelString: 'Value'
+							labelString: 'Amount ($)'
 						}
 					}]
 				}
 			}
         };
         
-        let PIE_DATA_COUNT = 5;
+        let PIE_DATA_COUNT = 3;
+        let PIE_DATA = [600, 400, 1000]
 
         let utils = Samples.utils;
 
-        utils.srand(110);
+        utils.srand(360);
 
         function colorize(opaque, hover, ctx) {
             let v = ctx.dataset.data[ctx.dataIndex];
-            let c = v < -50 ? '#D60000'
-                : v < 0 ? '#F46300'
-                : v < 50 ? '#0358B6'
-                : '#44DE28';
+            let colors = ["#679b9b", "#e36387", "#a6dcef"]
+            let c = colors[ctx.dataIndex];
+
 
             let opacity = hover ? 1 - Math.abs(v / 150) - 0.2 : 1 - Math.abs(v / 150);
 
@@ -125,26 +138,31 @@
         function generateData() {
             return utils.numbers({
                 count: PIE_DATA_COUNT,
-                min: -100,
-                max: 100
+                min: 0,
+                max: 5000
             });
         }
 
         let data = {
             datasets: [{
-                data: generateData(),
-            }]
+                data: PIE_DATA
+            }],
+            labels: [
+                'Saving',
+                'Expense',
+                'Income'
+            ]
         };
 
         let options = {
-            legend: false,
-            tooltips: false,
+            legend: {labels: { fontSize: 15}},
+            tooltips: { enabled: true, titleFontSize: 13},
             elements: {
                 arc: {
                     backgroundColor: colorize.bind(null, false, false),
                     hoverBackgroundColor: hoverColorize
                 }
-            }
+            },
         };
 
 		window.onload = function() {

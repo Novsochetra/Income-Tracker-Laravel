@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Income;
+use App\Categories;
 
 class Incomes extends Controller
 {
@@ -26,7 +27,8 @@ class Incomes extends Controller
     public function create()
     {
         //
-        return view('incomes.create');
+        $categories = Categories::all();
+        return view('incomes.create', ['categories' => $categories]);
     }
 
     /**
@@ -40,7 +42,8 @@ class Incomes extends Controller
         $result = Income::create([
             "name" => $request->title,
             "amount" => $request->amount,
-            "description" => $request->description 
+            "description" => $request->description,
+            "categories_id" => $request->category_id,
         ]);
 
         if($result) {
@@ -71,9 +74,9 @@ class Incomes extends Controller
      */
     public function edit($id)
     {
-        //
         $income = Income::find($id);
-        return view('incomes.edit', ['income' => $income]);
+        $categories = Categories::all();
+        return view('incomes.edit', ['income' => $income, 'categories' => $categories]);
     }
 
     /**
@@ -91,7 +94,8 @@ class Incomes extends Controller
         $result = $income->update([
             "name" => $request->title,
             "amount" => $request->amount,
-            "description" => $request->description
+            "description" => $request->description,
+            "categories_id" => $request->category_id
         ]);
 
         if($result) {
@@ -110,7 +114,6 @@ class Incomes extends Controller
      */
     public function destroy($id)
     {
-        //
         $income = Income::find($id);
         
         $result = $income->delete();
