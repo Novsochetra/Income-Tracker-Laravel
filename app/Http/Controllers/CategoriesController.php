@@ -15,10 +15,18 @@ class CategoriesController extends Controller
     public function index()
     {
         // get all the nerds
-        $categories = Categories::all();
+        $categories = Categories::orderBy('created_at', 'DESC')->paginate(15);
 
         // load the view and pass the nerds
         return view('categories.index', ['categories' => $categories]);
+    }
+
+    public function archive()
+    {
+        // get all the nerds
+        $categories = Categories::onlyTrashed()->paginate(15);
+       
+        return view('categories.archive', ['categories' => $categories]);
     }
 
     /**

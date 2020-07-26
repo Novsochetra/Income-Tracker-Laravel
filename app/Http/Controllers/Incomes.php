@@ -19,6 +19,12 @@ class Incomes extends Controller
         return view('incomes.index', ['incomes' => $incomes] );
     }
 
+    public function archive()
+    {
+        $incomes = Income::onlyTrashed()->paginate(15);
+        return view('incomes.archive', ['incomes' => $incomes]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

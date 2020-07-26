@@ -36,12 +36,27 @@
                     <ul class="navbar-nav mr-auto">
                         @guest
                         @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('incomes.index') }}">Income</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Income
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="{{ route('incomes.index') }}">All</a>
+                                  <a class="dropdown-item" href="{{ route('incomes.archive') }}">Archive</a>
+                                </div>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Category
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="{{ route('categories.index') }}">All</a>
+                                  <a class="dropdown-item" href="{{ route('categories.archive') }}">Archive</a>
+                                </div>
+                            </li>
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" href="{{ route('categories.index') }}">Category</a>
-                            </li>
+                            </li> --}}
                         @endguest
                     </ul>
 

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Categories extends Model
 {
@@ -11,6 +12,8 @@ class Categories extends Model
         'color',
         'description'
     ];
+
+    use SoftDeletes;
 
     public function incomes()
     {
