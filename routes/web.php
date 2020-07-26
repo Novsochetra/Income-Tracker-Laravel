@@ -22,8 +22,11 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::resource('incomes', 'Incomes');
     Route::get('incomes/index/archive', 'Incomes@archive')->name('incomes.archive');
+    Route::post('incomes/{id}/restore', 'Incomes@restore');
+    Route::delete('incomes/{id}/permanentDelete', 'Incomes@permanentDelete');
     Route::resource('categories', 'CategoriesController');
     Route::get('categories/index/archive', 'CategoriesController@archive')->name('categories.archive');
+    Route::post('categories/{id}/restore', 'CategoriesController@restore');
 
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');

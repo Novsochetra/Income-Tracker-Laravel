@@ -13,7 +13,8 @@
                     <div class="col-sm-10">
                         {{ $incomes->links() }}
                     </div>
-                    <div class="col-sm-1">
+                    <div class="col-sm-12">
+                        <a class="btn btn-outline-success" href="{{ route('incomes.index') }}">All</a>
                         <a class="btn btn-outline-success" href="/incomes/create">Add</a>
                     </div>
                 </div>
@@ -37,11 +38,15 @@
                             <td>
                                 <a href="/incomes/{{$income->id}}" class="btn btn-outline-primary">Show</a>
                                 <a href="/incomes/{{$income->id}}/edit" class="btn btn-outline-primary">Edit</a>
-                                <form action="/incomes/{{$income->id}}" method="post">
-                                    @method('delete')
+                                <form action="/incomes/{{$income->id}}/restore" method="post">
                                     @csrf
-                                    <button type="submit" class="btn btn-outline-danger">Delete</button> 
+                                    <button type="submit" class="btn btn-outline-success">Resore</button> 
                                 </form>
+                                <form action="/incomes/{{$income->id}}/permanentDelete" method="post">
+                                  @method('delete')
+                                  @csrf
+                                  <button type="submit" class="btn btn-outline-danger">Permenant Delete</button> 
+                              </form>
                             </td>
                         </tr>
                    @endforeach 

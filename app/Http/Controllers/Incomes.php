@@ -25,6 +25,30 @@ class Incomes extends Controller
         return view('incomes.archive', ['incomes' => $incomes]);
     }
 
+    public function restore(Request $request)
+    {
+        $result = Income::withTrashed()
+            ->where('id', $request->id)
+            ->restore();
+
+        if($result) {
+            return redirect()->action(
+                'Incomes@archive', []
+            )->with('message', 'Income restore!');;
+        }
+    }
+
+    public function permanentDelete(Request $request) {
+        $result = Income::withTrashed()
+            ->where('id', $request->id)->forceDelete();
+        
+        if($result) {
+            return redirect()->action(
+                'Incomes@archive', []
+            )->with('message', 'Income Deleted!');;
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -127,7 +151,7 @@ class Incomes extends Controller
         if($result) {
             return redirect()->action(
                 'Incomes@index', []
-            )->with('message', 'Income delete!');;
+            )->with('message', 'Income archive!');;
         } 
     }
 }

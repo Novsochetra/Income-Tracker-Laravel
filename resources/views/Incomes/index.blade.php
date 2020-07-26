@@ -13,8 +13,9 @@
                     <div class="col-sm-10">
                         {{ $incomes->links() }}
                     </div>
-                    <div class="col-sm-1">
-                        <a class="btn btn-outline-success" href="/incomes/create">Add</a>
+                    <div class="col-sm-12">
+                        <a class="btn btn-outline-success" href="{{route('incomes.create')}}">Add</a>
+                        <a class="btn btn-outline-success" href="{{route('incomes.archive')}}">List Archive</a>
                     </div>
                 </div>
                 <table class="table table-bordered table-hover">
@@ -40,7 +41,7 @@
                                 <form action="/incomes/{{$income->id}}" method="post">
                                     @method('delete')
                                     @csrf
-                                    <button type="submit" class="btn btn-outline-danger">Delete</button> 
+                                    <button type="submit" class="btn btn-outline-danger">Archive</button> 
                                 </form>
                             </td>
                         </tr>

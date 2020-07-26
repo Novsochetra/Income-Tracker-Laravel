@@ -6,7 +6,8 @@
                 <a href="{{url('/categories/create')}}">
                     <i class="btn btn-outline-success"> Add Category</i>
                 </a>
-                <hr>
+                <a class="btn btn-outline-success" href="{{ route('categories.archive') }}">List Archive</a>
+                <br/>
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
@@ -49,6 +50,7 @@
                     </tbody>
                 </table>
             </div>
+            <div class="row"></div>
             <div class="row">
                 <div class="col-sm-12">
                     {{ $categories->links() }}

@@ -3,6 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="row">
+                <a class="btn btn-outline-success" href="{{ route('categories.index') }}">All</a>
                 <a href="{{url('/categories/create')}}">
                     <i class="btn btn-outline-success"> Add Category</i>
                 </a>
@@ -37,10 +38,9 @@
                 
                                 <!-- edit this nerd (uses the edit method found at GET /nerds/{id}/edit -->
                                 <a class="btn btn-outline-primary" href="{{ URL::to('categories/' . $value->id . '/edit') }}">Edit</a>
-                                <form action="/categories/{{$value->id}}" method="post">
-                                    @method('delete')
+                                <form action="/categories/{{$value->id}}/restore" method="post">
                                     @csrf
-                                    <button type="submit" class="btn btn-outline-danger">Delete</button> 
+                                    <button type="submit" class="btn btn-outline-success">Restore</button> 
                                 </form>
                 
                             </td>

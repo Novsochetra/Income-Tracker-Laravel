@@ -21,6 +21,19 @@ class CategoriesController extends Controller
         return view('categories.index', ['categories' => $categories]);
     }
 
+    public function restore(Request $request)
+    {
+        $result = Categories::withTrashed()
+            ->where('id', $request->id)
+            ->restore();
+
+        if($result) {
+            return redirect()->action(
+                'CategoriesController@archive', []
+            )->with('message', 'Categories restore!');;
+        }
+    }
+
     public function archive()
     {
         // get all the nerds
