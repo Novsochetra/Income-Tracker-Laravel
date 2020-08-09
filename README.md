@@ -27,12 +27,15 @@
 
 ## 🥇 Special Feature 🥇
 
-
 1. ✅ App is easy to use because it doesn't has complex feature.
 2. ✅ We have list all of archive data.
 3. ✅ User is able to restore of their data when they archive it
 4. ✅ On Dashboard user is alble to view their montly and dialy expense.
 5. ✅ User must login in order to use the app, so it secure for their data.
+
+### 📒 Database Structure 📒
+
+![Midter Dabase Structure](https://github.com/Novsochetra/Income-Tracker-Laravel/blob/master/Document/midter-databse-structure.png?raw=true "Midter Dabase Structure")
 
 
 ## 🖥 Reference 🖥
