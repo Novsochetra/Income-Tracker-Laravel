@@ -37,10 +37,10 @@
 
 ## 🖥 Reference 🖥
 
-bootstrap: https://duckduckgo.com/?q=bootstrap+4&atb=v209-1&ia=web
+- bootstrap: https://duckduckgo.com/?q=bootstrap+4&atb=v209-1&ia=web
 
-laravel: https://laravel.com/
+- laravel: https://laravel.com/
 
-jquery: https://jquery.com/
+- jquery: https://jquery.com/
 
-chart: https://www.chartjs.org/
+- chart: https://www.chartjs.org/
