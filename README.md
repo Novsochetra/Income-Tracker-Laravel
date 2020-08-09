@@ -37,6 +37,8 @@
 
 ![Midter Dabase Structure](https://github.com/Novsochetra/Income-Tracker-Laravel/blob/master/Document/midter-databse-structure.png?raw=true "Midter Dabase Structure")
 
+# Site Map
+Site map show about: Structure of page in Income Tracker
 
 ## 🖥 Reference 🖥
 
@@ -47,3 +49,4 @@
 - jquery: https://jquery.com/
 
 - chart: https://www.chartjs.org/
+
