@@ -37,7 +37,7 @@
 
 ![Midter Dabase Structure](https://github.com/Novsochetra/Income-Tracker-Laravel/blob/master/Document/midter-databse-structure.png?raw=true "Midter Dabase Structure")
 
-# Site Map
+### 🏔 Sitemap 🏔
 ![Sitemap App](https://github.com/Novsochetra/Income-Tracker-Laravel/blob/master/Document/sitemap.png?raw=true "Sitemap")
 
 ## 🖥 Reference 🖥
