@@ -6,20 +6,27 @@
 	cd PROJECT_NAME
 	composer install
 
-##### Step 2 
-	php artisan key:generate
 
-##### Step 3 
+
+##### Step 2
 1. rename `.env.example` to `.env`
-2. add the database name file to .env and other configuration if `.env`
+2. add the database name file to .env and other configuration in `.env` file
+
+##### Step 3
+	php artisan migrate
 
 ##### Step 4
-	php artisan migrate
+	php artisan key:generate
+
 ##### Step 5 (Optional)
 	php artisan db:seed
+	
+##### Step 6
+	php artisan serve
 
 
 ## 🥇 Special Feature 🥇
+
 
 1. ✅ App is easy to use because it doesn't has complex feature.
 2. ✅ We have list all of archive data.
