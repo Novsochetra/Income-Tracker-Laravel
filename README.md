@@ -1,6 +1,6 @@
 # Income & Expense Tracker Web App 
 ## 🛠 Installation ⚒
-----
+
 ##### Step 1
 	git clone git@github.com:Novsochetra/Income-Tracker-Laravel.git
 	cd PROJECT_NAME
@@ -20,7 +20,7 @@
 
 
 ## 🥇 Special Feature 🥇
-----
+
 1. ✅ App is easy to use because it doesn't has complex feature.
 2. ✅ We have list all of archive data.
 3. ✅ User is able to restore of their data when they archive it
@@ -29,7 +29,7 @@
 
 
 ## 🖥 Reference 🖥
-----
+
 bootstrap: https://duckduckgo.com/?q=bootstrap+4&atb=v209-1&ia=web
 
 laravel: https://laravel.com/
